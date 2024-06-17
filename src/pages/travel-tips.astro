@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Text from "../components/Text.astro";
+
+const articles = [
+  {
+    title: "Packing Essentials",
+    content: [
+      "Packing can make or break your trip. Learn how to pack efficiently with our packing tips: Pack Light: Essential items only to avoid lugging around heavy bags.",
+      "Versatile Clothing: Mix and match outfits for various occasions and weather conditions.",
+      "Travel Accessories: Must-haves like travel adapters, portable chargers, and a good travel backpack.",
+    ],
+  },
+  {
+    title: "Budget Travel",
+    content: [
+      "Explore the world without breaking the bank:",
+      "Accommodation: Look for budget-friendly options such as hostels, guesthouses, or vacation rentals. Consider booking in advance for better rates.",
+      "Local Cuisine: Explore local markets and street food for affordable and authentic dining experiences.",
+      "Free Attractions: Research free or discounted days for museums, parks, and cultural sites to save on entrance fees.",
+    ],
+  },
+  {
+    title: "Safety Tips",
+    content: [
+      "Stay safe and healthy while traveling:",
+      "Research: Learn about potential health risks, local customs, and safety tips specific to your destination.",
+      "Emergency Contacts: Keep a list of emergency contacts, including local authorities and your embassy or consulate.",
+      "Travel Insurance: Consider purchasing travel insurance that covers medical emergencies, trip cancellations, and lost or stolen belongings.",
+    ],
+  },
+  {
+    title: "Travel Tech",
+    content: [
+      "Respect local customs and cultures: Navigation Apps: Download offline maps and GPS navigation apps to navigate unfamiliar streets and areas.",
+      "Language Apps: Learn basic phrases in the local language to facilitate communication with locals.",
+      "Photography Gear: Pack a camera or smartphone with good quality lenses to capture memorable moments.",
+    ],
+  },
+  {
+    title: "Eco-Friendly Travel",
+    content: [
+      "Reduce your environmental impact while exploring the world: Reusable Items: Carry a reusable water bottle, shopping bag, and utensils to minimize single-use plastic waste.",
+      "Public Transportation: Use public transportation, walk, or bike to explore cities and reduce carbon emissions.",
+      "Support Sustainable Businesses: Choose accommodations and tour operators that prioritize eco-friendly practices and support local communities.",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Travel Tips"
+  lang="en"
+  metaTitle="travel-tips"
+  metaDescription="Make your travel experience seamless and enjoyable with our expert travel tips. "
+  metaRobots="index, follow"
+>
+  <main>
+    <h1>Travel Tips</h1>
+    <ul role="list" class="link-card-grid">
+      <Card
+        href="/destinations"
+        title="Destinations"
+        body="Discover the world's most captivating destinations."
+      />
+      <Card
+        href="/travel-tips"
+        title="Travel-tips"
+        body="Make your travel experience seamless and enjoyable with our expert travel tips."
+      />
+      <Card
+        href="/adventure-activities"
+        title="Adventure-activities"
+        body="For the thrill-seekers and adventure lovers."
+      />
+      <Card
+        href="/travel-stories"
+        title="Travel-stories"
+        body="Get inspired by real-life travel stories from fellow wanderers."
+      />
+    </ul>
+  </main>
+  <div class="text_wrap">
+    {
+      articles.map((article, index) => (
+        <Text key={index} title={article.title} content={article.content} />
+      ))
+    }
+  </div>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .astro-a {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translatex(-50%);
+    width: 220px;
+    height: auto;
+    z-index: -1;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+  }
+  .text_wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+</style>

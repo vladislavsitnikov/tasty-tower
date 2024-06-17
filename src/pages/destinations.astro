@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Text from "../components/Text.astro";
+
+const articles = [
+  {
+    title: "Europe",
+    content: [
+      "Paris, France: The City of Lights offers iconic landmarks like the Eiffel Tower, Louvre Museum, and charming streets perfect for romantic strolls.",
+      "Rome, Italy: Dive into history with the Colosseum, Vatican City, and delicious Italian cuisine.",
+      "Barcelona, Spain: Admire the unique architecture of Antoni Gaudí, relax on beautiful beaches, and enjoy vibrant nightlife.",
+      "Amsterdam, Netherlands: Explore picturesque canals, world-class museums, and a relaxed, bike-friendly culture.",
+    ],
+  },
+  {
+    title: "Asia",
+    content: [
+      "Tokyo, Japan: A blend of ultra-modern and traditional, Tokyo features dazzling skyscrapers, historic temples, and a foodie paradise.",
+      "Bangkok, Thailand: Discover ornate temples, bustling markets, and vibrant street life in Thailand's energetic capital.",
+      "Bali, Indonesia: Known for its lush landscapes, serene beaches, and vibrant culture, Bali is a paradise for relaxation and adventure.",
+      "Seoul, South Korea: Experience the dynamic mix of ancient palaces, cutting-edge technology, and exciting K-pop culture.",
+    ],
+  },
+  {
+    title: "Americas",
+    content: [
+      "New York City, USA: The city that never sleeps boasts iconic sites like Times Square, Central Park, and the Statue of Liberty.",
+      "Rio de Janeiro, Brazil: Famous for its Carnival, stunning beaches like Copacabana, and the impressive Christ the Redeemer statue.",
+      "Vancouver, Canada: A blend of urban sophistication and natural beauty, offering mountains, oceans, and a thriving cultural scene.",
+      "Buenos Aires, Argentina: Dance the tango, explore historic neighborhoods, and enjoy world-renowned Argentine cuisine.",
+    ],
+  },
+  {
+    title: "Africa",
+    content: [
+      "Cape Town, South Africa: Nestled between mountains and the sea, Cape Town offers stunning scenery, rich history, and vibrant culture.",
+      "Marrakech, Morocco: Wander through bustling souks, historic palaces, and enjoy the colorful atmosphere of the Jemaa el-Fnaa square.",
+      "Nairobi, Kenya: Gateway to safari adventures, Nairobi combines modernity with proximity to incredible wildlife experiences.",
+      "Cairo, Egypt: Explore ancient wonders like the Pyramids of Giza and the Sphinx, and immerse yourself in the history of the Nile River.",
+    ],
+  },
+  {
+    title: "Oceania",
+    content: [
+      "Sydney, Australia: Home to the iconic Sydney Opera House and Harbour Bridge, with beautiful beaches and a vibrant arts scene.",
+      "Auckland, New Zealand: A city surrounded by natural beauty, offering stunning harbor views, cultural attractions, and outdoor adventures.",
+      "Fiji: An archipelago of tropical islands known for its crystal-clear waters, coral reefs, and welcoming local culture.",
+      "Melbourne, Australia: Known for its coffee culture, artsy vibe, and diverse culinary scene, Melbourne is a haven for foodies and art lovers.",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Destinations"
+  lang="en"
+  metaTitle="destinations"
+  metaDescription="Discover the world's most captivating destinations. "
+  metaRobots="index, follow"
+>
+  <h1>Discover</h1>
+  <div class="text_wrap">
+    {
+      articles.map((article, index) => (
+        <Text key={index} title={article.title} content={article.content} />
+      ))
+    }
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+  }
+  .text_wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+</style>

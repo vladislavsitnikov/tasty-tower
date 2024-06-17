@@ -1,0 +1,151 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Text from "../components/Text.astro";
+import CardBlog from "../components/CardBlog.astro";
+
+const blogPosts = [
+  {
+    title: "Featured Stories",
+    content: [
+      "Into the Unknown: A solo traveler's expedition through remote villages in Southeast Asia, encountering local traditions and breathtaking scenery.",
+      "Alone in the Arctic: An exploration of northern Scandinavia's pristine wilderness, capturing the beauty of the aurora borealis and Arctic wildlife.",
+    ],
+  },
+  {
+    title: "Couple's Escapades",
+    content: [
+      "Romance in Rome: A romantic getaway exploring ancient ruins, cobblestone streets, and culinary delights in the heart of Italy's capital.",
+      "Island Hopping in Greece: Discovering the charm of Greek islands, from sandy beaches and turquoise waters to picturesque villages and sunset vistas.",
+    ],
+  },
+];
+
+const articles = [
+  {
+    title: "Family Travels",
+    content: [
+      "Disney Magic: Tips and tales from a magical family vacation at Disney parks worldwide, creating unforgettable memories for children and parents alike.",
+      "Road Trip Across America: A cross-country adventure, from bustling cities to national parks, filled with scenic drives and family-friendly attractions.",
+    ],
+  },
+  {
+    title: "Backpacking Journeys",
+    content: [
+      "South America on a Shoestring: Budget-friendly tips for exploring vibrant cities, ancient ruins, and natural wonders across South America.",
+      "Through the Himalayas: Trekking adventures and cultural encounters in Nepal and Bhutan, navigating mountain trails and remote villages.",
+    ],
+  },
+  {
+    title: "Cultural Immersions",
+    content: [
+      "Living with Locals in Morocco: A homestay experience immersed in Moroccan hospitality, culinary traditions, and ancient architecture.",
+      "Japanese Traditions: From tea ceremonies and kimono fittings to cherry blossom festivals, experiencing the rich cultural heritage of Japan.",
+      "Inspiration: Discover new destinations and activities to add to your travel bucket list, inspired by real experiences and personal narratives.",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Travel Stories"
+  lang="en"
+  metaTitle="travel-stories"
+  metaDescription="Immerse yourself in a world of travel through captivating stories shared by fellow adventurers from around the globe."
+  metaRobots="index, follow"
+>
+  <main>
+    <h1>Travel Stories</h1>
+  </main>
+  <div class="blog-card_wrap">
+    {
+      blogPosts.map((post, index) => (
+        <CardBlog key={index} title={post.title} content={post.content} />
+      ))
+    }
+  </div>
+
+  <div class="text_wrap">
+    {
+      articles.map((article, index) => (
+        <Text key={index} title={article.title} content={article.content} />
+      ))
+    }
+  </div>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .main_logo {
+    font-size: 30px;
+    font-weight: 800;
+  }
+  .astro-a {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translatex(-50%);
+    width: 220px;
+    height: auto;
+    z-index: -1;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+  }
+  .text_wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .blog-card_wrap {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+</style>

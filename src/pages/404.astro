@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="404"
+  lang="en"
+  metaTitle="404 - Page Not Found"
+  metaDescription="The page you are looking for does not exist."
+  metaRobots="noindex, nofollow"
+>
+  <main>
+    <h1 class="notfollow_logo">404</h1>
+    <p class="notfollow_text">Page not found</p>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .notfollow_logo {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+  }
+  .notfollow_text {
+    text-align: center;
+  }
+</style>

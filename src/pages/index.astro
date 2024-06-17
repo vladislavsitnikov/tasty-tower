@@ -1,0 +1,176 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Text from "../components/Text.astro";
+import CardBlog from "../components/CardBlog.astro";
+
+const blogPosts = [
+  {
+    title: "Discover the world one journey at a time.",
+    content: [
+      "At Wanderlust Chronicles, we believe that travel is not just about the destination, but about the experiences, stories, and memories you create along the way. Whether you're a seasoned traveler or just starting your adventure, our blog is your go-to resource for inspiration, tips, and guides to make every trip unforgettable.",
+      "Become part of a vibrant community of travelers who share your passion for exploration. Follow our journeys, share your own travel stories, and get inspired by fellow wanderers from all corners of the world.",
+    ],
+  },
+  {
+    title: "Sustainable Tourism",
+    content: [
+      "In recent years, the concept of sustainable tourism has gained significant traction as travelers and destinations alike recognize the importance of preserving our planet while enjoying its beauty. Sustainable tourism, also known as responsible tourism or eco-tourism, emphasizes minimizing the negative impact on the environment, supporting local communities, and promoting cultural understanding and conservation.",
+      "Environmental Conservation: Sustainable tourism aims to minimize the carbon footprint of travel activities. This includes choosing eco-friendly accommodations, using public transportation or bicycles instead of cars, and respecting natural habitats and wildlife.",
+    ],
+  },
+];
+
+const articles = [
+  {
+    title: "Explore With Us",
+    content: [
+      "Travel Guides: From bustling cities to serene landscapes, find comprehensive guides that will help you navigate through the most amazing destinations around the globe.",
+      "Tips and Tricks: Learn the best travel hacks, packing tips, and budgeting advice to make your travels smooth and stress-free.",
+      "Cultural Insights: Immerse yourself in the local cultures, traditions, and cuisines. Our cultural insights will help you connect deeper with the places you visit.",
+      "Adventure Awaits: Whether you're into hiking, diving, or exploring hidden gems, our adventure section is packed with ideas for thrill-seekers and nature lovers alike.",
+    ],
+  },
+  {
+    title: "Join Our Community",
+    content: [
+      "Authentic Experiences: We believe in traveling off the beaten path and experiencing destinations like a local.",
+      "Expert Advice: Our team of seasoned travelers and industry experts provide reliable, up-to-date information you can trust.",
+      "Inspiring Stories: Read about real-life travel adventures and experiences that will ignite your wanderlust and inspire your next trip.",
+    ],
+  },
+  {
+    title: "Start Your Adventure",
+    content: [
+      "Ready to embark on your next journey? Dive into our latest articles, explore our destination guides, and start planning your next adventure with Wanderlust Chronicles. Your adventure of a lifetime starts here!",
+      "Travel far, travel wide, and let Wanderlust Chronicles be your trusted companion on every step of your journey.",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Welcome to Astro."
+  lang="en"
+  metaTitle="astro-site"
+  metaDescription="This is my amazing Astro site."
+  metaRobots="index, follow"
+>
+  <main>
+    <h1>Welcome to Wanderlust Chronicles</h1>
+    <ul role="list" class="link-card-grid">
+      <Card
+        href="/destinations"
+        title="Destinations"
+        body="Discover the world's most captivating destinations."
+      />
+      <Card
+        href="/travel-tips"
+        title="Travel-tips"
+        body="Make your travel experience seamless and enjoyable with our expert travel tips."
+      />
+      <Card
+        href="/adventure-activities"
+        title="Adventure-activities"
+        body="For the thrill-seekers and adventure lovers."
+      />
+      <Card
+        href="/travel-stories"
+        title="Travel-stories"
+        body="Get inspired by real-life travel stories from fellow wanderers."
+      />
+    </ul>
+  </main>
+  <div class="text_wrap">
+    {
+      articles.map((article, index) => (
+        <Text key={index} title={article.title} content={article.content} />
+      ))
+    }
+  </div>
+
+  <div class="blog-card_wrap">
+    {
+      blogPosts.map((post, index) => (
+        <CardBlog key={index} title={post.title} content={post.content} />
+      ))
+    }
+  </div>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .main_logo {
+    font-size: 30px;
+    font-weight: 800;
+  }
+  .astro-a {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translatex(-50%);
+    width: 220px;
+    height: auto;
+    z-index: -1;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+  }
+  .text_wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .blog-card_wrap {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+</style>
